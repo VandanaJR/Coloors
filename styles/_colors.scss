@@ -1,0 +1,171 @@
+.logo {
+  text-align: center;
+  min-height: 10vh;
+}
+.logo h2 {
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  background: linear-gradient(
+    to right,
+    rgb(204, 75, 75),
+    rgb(204, 204, 75),
+    rgb(75, 204, 75),
+    rgb(75, 204, 204),
+    rgb(75, 75, 204),
+    rgb(204, 75, 204),
+    rgb(204, 75, 75)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: inline-block;
+}
+
+.colors {
+  min-height: 75vh;
+  display: flex;
+}
+
+.color {
+  position: relative;
+  overflow: hidden;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: space-evenly;
+  h2 {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .adjust,
+  .lock {
+    font-size: 2rem;
+    border: none;
+    background: none;
+    margin: 2rem 0;
+    cursor: pointer;
+  }
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+//---------------SLIDERS--------------------------
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: cadetblue;
+  width: 80%;
+  bottom: 0;
+  padding: 1rem;
+  //opacity: 0;
+  //transform: translateY(100px);
+  // pointer-events: none;
+  transition: all 0.5 ease-in-out;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  button {
+    position: absolute;
+    padding: 0.5rem;
+    top: 0;
+    right: 0;
+    border: none;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 0.5rem;
+    background: rgb(46, 46, 46);
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.sliders.active {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
+}
+
+//Slider styles------
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 1rem 0rem;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+//-------------------SLIDERS END--------------------
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 15vh;
+  //background: rgb(224, 202, 169);
+  padding-top: 1rem;
+  button {
+    border: none;
+    font-size: 1.2rem;
+    background-color: rgb(28, 35, 73);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  p {
+    font-size: 1.2rem;
+    padding: 1rem 0 0 0;
+  }
+  .library-panel,
+  .generate-panel,
+  .save-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.copy-container {
+  position: fixed;
+  top: 0rem;
+  bottom: 0rem;
+  height: 100%;
+  width: 100%;
+  background: rgba($color: #000000, $alpha: 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.copy-popup {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5rem;
+  border-radius: 30px;
+  transform: translateY(-2rem);
+  transition: all 0.5s ease;
+  h3 {
+    font-size: 2.5rem;
+    padding: 0.5rem;
+  }
+}
+
+.copy-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.copy-popup.active {
+  transform: translateY(0rem);
+}

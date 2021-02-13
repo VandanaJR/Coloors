@@ -1,0 +1,20 @@
+@import "colors";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "PT Sans Narrow", sans-serif;
+  width: 100%;
+}
+
+main {
+  min-height: 100vh;
+}
+
+path,
+i,
+svg {
+  pointer-events: none;
+}

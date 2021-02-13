@@ -1,0 +1,242 @@
+.logo {
+  text-align: center;
+  min-height: 10vh;
+}
+
+.logo h2 {
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  background: -webkit-gradient(linear, left top, right top, from(#cc4b4b), color-stop(#cccc4b), color-stop(#4bcc4b), color-stop(#4bcccc), color-stop(#4b4bcc), color-stop(#cc4bcc), to(#cc4b4b));
+  background: linear-gradient(to right, #cc4b4b, #cccc4b, #4bcc4b, #4bcccc, #4b4bcc, #cc4bcc, #cc4b4b);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: inline-block;
+}
+
+.colors {
+  min-height: 75vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.color {
+  position: relative;
+  overflow: hidden;
+  height: 75vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.color h2 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.color .adjust,
+.color .lock {
+  font-size: 2rem;
+  border: none;
+  background: none;
+  margin: 2rem 0;
+  cursor: pointer;
+}
+
+.controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sliders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  background: cadetblue;
+  width: 80%;
+  bottom: 0;
+  padding: 1rem;
+  -webkit-transition: all 0.5 ease-in-out;
+  transition: all 0.5 ease-in-out;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.sliders button {
+  position: absolute;
+  padding: 0.5rem;
+  top: 0;
+  right: 0;
+  border: none;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 0.5rem;
+  background: #2e2e2e;
+  color: white;
+  cursor: pointer;
+}
+
+.sliders.active {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  pointer-events: all;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 1rem 0rem;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  min-height: 15vh;
+  padding-top: 1rem;
+}
+
+.panel button {
+  border: none;
+  font-size: 1.2rem;
+  background-color: #1c2349;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.panel p {
+  font-size: 1.2rem;
+  padding: 1rem 0 0 0;
+}
+
+.panel .library-panel,
+.panel .generate-panel,
+.panel .save-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.copy-container {
+  position: fixed;
+  top: 0rem;
+  bottom: 0rem;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.copy-popup {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5rem;
+  border-radius: 30px;
+  -webkit-transform: translateY(-2rem);
+          transform: translateY(-2rem);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.copy-popup h3 {
+  font-size: 2.5rem;
+  padding: 0.5rem;
+}
+
+.copy-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.copy-popup.active {
+  -webkit-transform: translateY(0rem);
+          transform: translateY(0rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "PT Sans Narrow", sans-serif;
+  width: 100%;
+}
+
+main {
+  min-height: 100vh;
+}
+
+path,
+i,
+svg {
+  pointer-events: none;
+}
+/*# sourceMappingURL=styles.css.map */

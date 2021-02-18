@@ -52,20 +52,20 @@
   flex-direction: column;
 }
 
-//---------------SLIDERS--------------------------
+//---------------SLIDERS------------------------------------
 
 .sliders {
   display: flex;
   flex-direction: column;
   position: absolute;
-  background: cadetblue;
+  background: rgb(255, 255, 255);
   width: 80%;
   bottom: 0;
   padding: 1rem;
-  //opacity: 0;
-  //transform: translateY(100px);
-  // pointer-events: none;
-  transition: all 0.5 ease-in-out;
+  opacity: 0;
+  transform: translateY(100px);
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   button {
@@ -88,9 +88,11 @@
   opacity: 1;
   transform: translateY(0px);
   pointer-events: all;
+  transition: all 0.5s ease-in-out;
 }
 
-//Slider styles------
+//----------------Slider styles---------------------
+
 input[type="range"] {
   -webkit-appearance: none;
   margin: 1rem 0rem;
@@ -143,6 +145,7 @@ input[type="range"] {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
+  transition: all 0.5s ease-in-out;
 }
 
 .copy-popup {
@@ -154,7 +157,7 @@ input[type="range"] {
   padding: 5rem;
   border-radius: 30px;
   transform: translateY(-2rem);
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
   h3 {
     font-size: 2.5rem;
     padding: 0.5rem;

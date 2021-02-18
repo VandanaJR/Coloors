@@ -75,12 +75,16 @@
       -ms-flex-direction: column;
           flex-direction: column;
   position: absolute;
-  background: cadetblue;
+  background: white;
   width: 80%;
   bottom: 0;
   padding: 1rem;
-  -webkit-transition: all 0.5 ease-in-out;
-  transition: all 0.5 ease-in-out;
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+  pointer-events: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
@@ -105,6 +109,8 @@
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
   pointer-events: all;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 input[type="range"] {
@@ -178,6 +184,8 @@ input[type="range"] {
           justify-content: center;
   opacity: 0;
   pointer-events: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .copy-popup {
@@ -199,8 +207,8 @@ input[type="range"] {
   border-radius: 30px;
   -webkit-transform: translateY(-2rem);
           transform: translateY(-2rem);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .copy-popup h3 {

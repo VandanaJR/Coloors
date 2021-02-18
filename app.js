@@ -1,34 +1,53 @@
 //Global Declarations
 const colorDiv = document.querySelectorAll(".color");
 const currentHexText = document.querySelectorAll(".color h2");
-const slider = document.querySelectorAll('.slider');
+const slider = document.querySelectorAll('.sliders');
 const generate = document.querySelector(".generate");
-const copyContainer= document.querySelector(".copy-container");
-//const adjust=document.querySelectorAll(".adjust");
-//const lock=document.querySelectorAll(".lock");
+const copyContainer = document.querySelector(".copy-container");
+const adjust = document.querySelectorAll(".adjust");
+const closeSlider = document.querySelectorAll(".close-slider");
+const lock=document.querySelectorAll(".lock");
 let initialColors;
-let initialBrightness;
-let initialSaturation;
 
-//Event Listners
+
+//Event Listners---------------------------------------------------
 generate.addEventListener('click',randomColors);
 
 slider.forEach(slider=>{
     slider.addEventListener('input',updateColor);
 });
 currentHexText.forEach(hex =>{
-    hex.addEventListener("click",()=>{
+    hex.addEventListener("click",() =>{
         copyToClipboad(hex);
     });
 });
 
-copyContainer.addEventListener("transitionend",()=>{
+copyContainer.addEventListener("transitionend",() =>{
     copyContainer.classList.remove("active");
     copyContainer.children[0].classList.remove("active");
 
 });
 
+adjust.forEach((button,index)=>{
+    button.addEventListener('click',() =>{
+        openAdjustmentPanel(index);
+    });
+});
+
+closeSlider.forEach((button,index) =>{
+    button.addEventListener('click',() =>{
+        closeAdjustmentPanel(index);
+    });
+});
+
+lock.forEach((button,index)=>{
+    button.addEventListener('click',()=>{
+        lockColor(index);
+    });
+});
+
  //Functions--------------------------------------------------------
+ randomColors();
 
 function generateHex(){
      const hexColor=  chroma.random();
@@ -37,15 +56,20 @@ function generateHex(){
 
 function randomColors(){
      initialColors=[];
-     initialBrightness=[];
-     initialSaturation=[];
+     
      colorDiv.forEach((div) => {
          //console.log(div);
          const randomHex= generateHex();
-         initialColors.push(randomHex.hex());
          //console.log(initialColors);
          const hexValue= div.children[0];
          const divIcons=div.children[1].children;
+         
+         if(div.classList.contains("locked")){
+            initialColors.push(hexValue.innerText);
+            return;
+        }else{
+            initialColors.push(randomHex.hex());
+           }
          //console.log(divIcons);
          div.style.backgroundColor= randomHex;
          hexValue.innerText= randomHex;
@@ -58,27 +82,18 @@ function randomColors(){
          //Initialize color sliders---------------------------------
          const color= chroma(randomHex);
          const sliders= div.querySelectorAll(".sliders input");
-         //console.log(sliders);
          const hue = sliders[0];
          const brightness= sliders[1];
          const saturation = sliders[2];
-         //console.log(hue);
-         //console.log(brightness);
-         //console.log(saturation);
 
         colorizeSliders(color,hue,brightness,saturation);
-
-
-        //ResetInputs------------------------------------
-       
-
-     });
-     //console.log(initialColors);
+    });
+      //ResetInputs------------------------------------
      resetInputs();
 }
 
 function changeTextContrast(color,text){
-     const luminance= chroma(color).luminance();
+     const luminance = chroma(color).luminance();
      //console.log(luminance);
      if(luminance>.5){
          text.style.color="black";
@@ -110,86 +125,35 @@ function colorizeSliders(color,hue,brightness,saturation){
 
 //------------------------------------------------------------------------
 function updateColor(e){
-    const selectedSlider=e.target;
-    const index= e.target.getAttribute("data-hue")||e.target.getAttribute("data-bright")||e.target.getAttribute("data-sat");
-    const selectedSliderValue= selectedSlider.value;
-    //Values for change contrast function---------------------------------------------------------
-    const hexValue= selectedSlider.parentElement.parentElement.children[0];
-    const divIcons=selectedSlider.parentElement.parentElement.children[1].children;
-    
-        if(selectedSlider.classList.contains("hue-input"))  {
-              //console.log(`update hue for color ${index}`);
-              const newHueColor=updateHue(index,selectedSliderValue);
-              //console.log(selectedSlider.parentElement);
-              const resSlider = selectedSlider.parentElement.querySelectorAll("input");
-              //console.log(resSlider);
-              const resHue = resSlider[0];
-              const resBright= resSlider[1];
-              const resSat= resSlider[2];
-              colorizeSliders(newHueColor,resHue,resBright,resSat);
-              initialColors[index]=newHueColor;
-              changeTextContrast(initialColors[index],hexValue);
-              for(icon of divIcons){
-                    changeTextContrast(initialColors[index],icon);
-                }
-          }else if(selectedSlider.classList.contains("bright-input")){
-            console.log(`update bright for color ${index}`);
-            updateBright(index,selectedSliderValue);
-            const newBrightColor=updateBright(index,selectedSliderValue);
-            const resSlider = selectedSlider.parentElement.querySelectorAll("input");
-            const resHue = resSlider[0];
-            const resBright= resSlider[1];
-            const resSat= resSlider[2];
-            initialBrightness[index]=newBrightColor.hex();
-            //console.log(initialBrightness[index]);
-            colorizeSliders(newBrightColor,resHue,resBright,resSat);
-            changeTextContrast(initialBrightness[index],hexValue);
-            for(icon of divIcons){
-                changeTextContrast(initialBrightness[index],icon);
-                }
-          }else if(selectedSlider.classList.contains("sat-input")){
-            //console.log(`update sat for color ${index}`);
-            const newSatColor=updateSat(index,selectedSliderValue);
-            const resSlider = selectedSlider.parentElement.querySelectorAll("input");
-            const resHue = resSlider[0];
-            const resBright= resSlider[1];
-            const resSat= resSlider[2];
-            initialSaturation[index]=newSatColor;
-            initialColors[index]=newSatColor;
-            colorizeSliders(newSatColor,resHue,resBright,resSat);
-            changeTextContrast(initialBrightness[index],hexValue);
-            for(icon of divIcons){
-                changeTextContrast(initialSaturation[index],icon);
-                }
-          }
-            
+    const index = e.target.getAttribute("data-hue")||e.target.getAttribute("data-bright")||e.target.getAttribute("data-sat");
+    let sliders = e.target.parentElement.querySelectorAll('input[type="range"]');
+    //console.log(sliders);
+    const hue = sliders[0];
+    const brightness= sliders[1];
+    const saturation = sliders[2];
+    //console.log(saturation);
+    //console.log(saturation.value);
+
+    //Generate color a/c to slider values---------------------------------------------------------==============
+    let color = chroma(initialColors[index])
+    .set('hsl.s',saturation.value)
+    .set('hsl.l',brightness.value)
+    .set('hsl.h',hue.value);
+
+    colorDiv[index].style.backgroundColor = color;
+    colorizeSliders(color,hue,brightness,saturation);
+    const hexValue= e.target.parentElement.parentElement.children[0];
+    const divIcons=e.target.parentElement.parentElement.children[1].children;
+    hexValue.innerText = color.hex();
+    changeTextContrast(color,hexValue);
+    for(icon of divIcons){
+       changeTextContrast(color,icon);
+    }
+
 }
 
-function updateHue(index,selectedSliderValue){
-            const divColorValue = initialColors[index];
-            //console.log(divColorValue);
-            let newColor= chroma(divColorValue).set("hsl.h",selectedSliderValue);
-            colorDiv[index].children[0].innerText = newColor.hex();
-            //initialColors[index]= newColor.hex();
-            colorDiv[index].style.backgroundColor= newColor;
-            return newColor;
- }
-function updateBright(index,selectedSliderValue){
-            const divColorValue = initialColors[index];
-            //console.log(divColorValue);
-            let newColor= chroma(divColorValue).set("hsl.l",selectedSliderValue);
-            colorDiv[index].children[0].innerText = newColor.hex();
-            colorDiv[index].style.backgroundColor= newColor;
-            return newColor;
-}
-function updateSat(index,selectedSliderValue){
-            const divColorValue =initialBrightness[index];
-            //console.log(divColorValue);
-            let newColor= chroma(divColorValue).set("hsl.s",selectedSliderValue);
-            colorDiv[index].children[0].innerText = newColor.hex();
-            colorDiv[index].style.backgroundColor= newColor;
-            return newColor;
-}
+
+
 
 //----------------------------------------------------------------------
 
@@ -238,3 +202,21 @@ function copyToClipboad(hex){
     copyContainer.children[0].classList.add("active");
 }
 
+function openAdjustmentPanel(index){
+    slider[index].classList.toggle("active");
+}
+
+function closeAdjustmentPanel(index){
+    slider[index].classList.remove("active");
+}
+
+
+function lockColor(index){
+    lock[index].parentElement.parentElement.classList.toggle("locked");
+    
+    if(lock[index].parentElement.parentElement.classList.contains("locked")){
+        lock[index].innerHTML='<i class="fas fa-lock"></i>';
+    }else{
+        lock[index].innerHTML='<i class="fas fa-lock-open"></i>';
+    }
+}

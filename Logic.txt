@@ -1,0 +1,33 @@
+Step 1: Generate Random Hex Color.(function geenrateHex)
+
+Step 2: Load the Random Hex Color as background.(function randomColors)
+
+Step 3: Intialize the sliders a/c to the Random Hex Color generated.(function colorizeSliders)
+
+        ->The Hue slider is by default same for all conditions.
+        ->The Brightness changes a/c to the Hue. 
+          Initialize by using  Hue-Brightness = chroma(randomHexColor).set(hsl.s,value).[Value is number a/c to which brightness varies.]
+        ->The Saturation changes a/c to the Brightness of respective Hue. 
+          Initialize by using  Hue-Saturation = chroma(Hue-Brightness).set(hsl.l,value).[Value is number a/c to which saturation varies.]
+
+Step 4: Update Hue, Saturation, Brightness a/c to the user inputs.(function updateColor)
+
+        ->Every time the user changes the Hue, Saturation ans Brightness values capture those values and use them to set the HSL values by using functions set(hsl.h,hueDliderValue),
+          set(hsl.s,saturationSliderValue), set(hsl.l,brightnessSliderValue) of chroma library.
+
+          After every update style the background colors a/c to the new color obtained.
+          [Note: Store the randomHexColor in an array called as initial array and pass it to the updateColor() function to make
+          sure that sliders get updated a/c to these initial colors and not based on the black and white colors generated upon changing the brightness and
+          saturation values.]
+
+Step 5: Implement the copy to clipboard function as follows:(CREATE & DESTROY)
+        ->Create a textarea element
+        ->Set the innerText of textarea to that of randomHexColor
+        ->Append textarea to body
+        ->Select the textarea 
+        ->Copy the textarea by .execCommand('copy');
+        ->Remove textarea from body
+
+
+
+

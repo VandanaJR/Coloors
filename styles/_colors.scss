@@ -66,18 +66,16 @@
   transform: translateY(100px);
   pointer-events: none;
   transition: all 0.5s ease-in-out;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   button {
     position: absolute;
     padding: 0.5rem;
     top: 0;
     right: 0;
     border: none;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
     background: rgb(46, 46, 46);
     color: white;
     cursor: pointer;
@@ -133,7 +131,9 @@ input[type="range"] {
   }
 }
 
-.copy-container {
+.copy-container,
+.save-container,
+.library-container {
   position: fixed;
   top: 0rem;
   bottom: 0rem;
@@ -148,14 +148,16 @@ input[type="range"] {
   transition: all 0.5s ease-in-out;
 }
 
-.copy-popup {
+.copy-popup,
+.save-popup,
+.library-popup {
   background: white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   padding: 5rem;
-  border-radius: 30px;
+  border-radius: 20px;
   transform: translateY(-2rem);
   transition: all 0.5s ease-in-out;
   h3 {
@@ -164,11 +166,53 @@ input[type="range"] {
   }
 }
 
-.copy-container.active {
+.copy-container.active,
+.save-container.active,
+.library-container.active {
   opacity: 1;
   pointer-events: all;
 }
 
-.copy-popup.active {
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active {
   transform: translateY(0rem);
+}
+
+.save-popup,
+.library-popup {
+  border-radius: 5%;
+  position: relative;
+  .close-save,
+  .close-library {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    background-color: rgb(28, 35, 73);
+    color: white;
+    padding: 0.7rem;
+    cursor: pointer;
+  }
+  h4 {
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  input {
+    margin: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1.5rem;
+  }
+  .submit-save {
+    margin: 0.5rem;
+    border: none;
+    font-size: 1.5rem;
+    background-color: rgb(28, 35, 73);
+    color: white;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+  }
 }

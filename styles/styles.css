@@ -85,8 +85,8 @@
   pointer-events: none;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .sliders button {
@@ -95,10 +95,8 @@
   top: 0;
   right: 0;
   border: none;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
   background: #2e2e2e;
   color: white;
   cursor: pointer;
@@ -166,7 +164,9 @@ input[type="range"] {
           align-items: center;
 }
 
-.copy-container {
+.copy-container,
+.save-container,
+.library-container {
   position: fixed;
   top: 0rem;
   bottom: 0rem;
@@ -188,7 +188,9 @@ input[type="range"] {
   transition: all 0.5s ease-in-out;
 }
 
-.copy-popup {
+.copy-popup,
+.save-popup,
+.library-popup {
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -204,26 +206,79 @@ input[type="range"] {
       -ms-flex-align: center;
           align-items: center;
   padding: 5rem;
-  border-radius: 30px;
+  border-radius: 20px;
   -webkit-transform: translateY(-2rem);
           transform: translateY(-2rem);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
-.copy-popup h3 {
+.copy-popup h3,
+.save-popup h3,
+.library-popup h3 {
   font-size: 2.5rem;
   padding: 0.5rem;
 }
 
-.copy-container.active {
+.copy-container.active,
+.save-container.active,
+.library-container.active {
   opacity: 1;
   pointer-events: all;
 }
 
-.copy-popup.active {
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active {
   -webkit-transform: translateY(0rem);
           transform: translateY(0rem);
+}
+
+.save-popup,
+.library-popup {
+  border-radius: 5%;
+  position: relative;
+}
+
+.save-popup .close-save,
+.save-popup .close-library,
+.library-popup .close-save,
+.library-popup .close-library {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #1c2349;
+  color: white;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+
+.save-popup h4,
+.library-popup h4 {
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+.save-popup input,
+.library-popup input {
+  margin: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.save-popup .submit-save,
+.library-popup .submit-save {
+  margin: 0.5rem;
+  border: none;
+  font-size: 1.5rem;
+  background-color: #1c2349;
+  color: white;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
 }
 
 * {

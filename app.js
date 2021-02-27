@@ -10,6 +10,7 @@ const lock=document.querySelectorAll(".lock");
 let initialColors;
 
 
+
 //Event Listners---------------------------------------------------
 generate.addEventListener('click',randomColors);
 
@@ -152,9 +153,6 @@ function updateColor(e){
 
 }
 
-
-
-
 //----------------------------------------------------------------------
 
 function resetInputs(){
@@ -219,4 +217,61 @@ function lockColor(index){
     }else{
         lock[index].innerHTML='<i class="fas fa-lock-open"></i>';
     }
+}
+
+//Save Palette and Library
+let savedPalette=[];
+const save = document.querySelector('.save');
+const saveContainer = document.querySelector('.save-container');
+const savePopup = document.querySelector(".save-popup");
+const saveInput = document.querySelector(".save-name");
+const saveSubmit = document.querySelector(".submit-save");
+const closeSaveButton = document.querySelector(".close-save");
+
+save.addEventListener("click", openSave);
+closeSaveButton.addEventListener("click",closeSave);
+saveSubmit.addEventListener("click",savePalette);
+function openSave(){
+    saveContainer.classList.add("active");
+    savePopup.classList.add("active");
+}
+
+function closeSave(){
+    saveContainer.classList.remove("active");
+    savePopup.classList.remove("active");
+}
+
+function savePalette(){
+    saveContainer.classList.remove("active");
+    savePopup.classList.remove("active");
+    const name= saveInput.value;
+    const color=[];
+    currentHexText.forEach(hex=>{
+        color.push(hex.innerText);
+    });
+
+    //generate Palette object
+    let paletteNr = savedPalette.length;
+    let paletteObj={ name, color, nr:paletteNr}
+    savedPalette.push(paletteObj);
+    
+
+    //Save palette object to local storage
+    saveToLocal(paletteObj);
+    saveInput.value="";
+
+    
+}
+
+function saveToLocal(paletteObj){
+    let localPalettes;
+    if(localStorage.getItem("palettes") === null){
+        localPalettes=[];
+    }
+    else{
+        localPalettes=JSON.parse(localStorage.getItem("palettes"))
+    }
+    localPalettes.push(paletteObj);
+    console.log(localPalettes);
+    localStorage.setItem("palettes",JSON.stringify(localPalettes));
 }

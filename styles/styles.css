@@ -281,6 +281,66 @@ input[type="range"] {
   cursor: pointer;
 }
 
+.pick-palette-button {
+  background-color: #1c2349;
+  color: white;
+  cursor: pointer;
+  height: 5rem;
+  padding: 2rem 1rem;
+}
+
+.library-popup {
+  width: 40%;
+  max-height: 50vh;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.appended-palette {
+  overflow-y: scroll;
+  width: 100%;
+  margin: 1rem;
+}
+
+.library-palette {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 2rem;
+  width: 100%;
+}
+
+.library-palette h4 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.small-preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.small-preview div {
+  height: 5rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -291,6 +351,8 @@ input[type="range"] {
 body {
   font-family: "PT Sans Narrow", sans-serif;
   width: 100%;
+  -webkit-animation: opening 1s ease-in-out;
+          animation: opening 1s ease-in-out;
 }
 
 main {
@@ -301,5 +363,23 @@ path,
 i,
 svg {
   pointer-events: none;
+}
+
+@-webkit-keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

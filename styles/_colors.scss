@@ -216,3 +216,43 @@ input[type="range"] {
     cursor: pointer;
   }
 }
+.pick-palette-button {
+  background-color: rgb(28, 35, 73);
+  color: white;
+  cursor: pointer;
+  height: 5rem;
+  padding: 2rem 1rem;
+}
+.library-popup {
+  width: 40%;
+  max-height: 50vh;
+  justify-content: flex-start;
+  padding: 1rem;
+  border-radius: 20px;
+}
+.appended-palette {
+  overflow-y: scroll;
+  width: 100%;
+  margin: 1rem;
+}
+
+.library-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem;
+  width: 100%;
+
+  h4 {
+    flex: 1;
+  }
+}
+
+.small-preview {
+  display: flex;
+  flex: 1;
+  div {
+    height: 5rem;
+    flex: 1;
+  }
+}

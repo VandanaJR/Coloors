@@ -286,7 +286,9 @@ input[type="range"] {
   color: white;
   cursor: pointer;
   height: 5rem;
-  padding: 2rem 1rem;
+  padding: 1rem;
+  border: none;
+  font-size: 1.2rem;
 }
 
 .library-popup {
@@ -339,6 +341,16 @@ input[type="range"] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.delete-palette-button {
+  color: #1c2349;
+  background-color: white;
+  cursor: pointer;
+  height: 5rem;
+  padding: 1rem 1rem;
+  border: none;
+  font-size: 2rem;
 }
 
 * {

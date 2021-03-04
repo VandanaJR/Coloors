@@ -300,7 +300,7 @@ input[type="range"] {
 }
 
 .library-popup {
-  width: 60%;
+  width: 30%;
   max-height: 70vh;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -414,13 +414,28 @@ svg {
   }
 }
 
+@media screen and (max-width: 1600px) {
+  .library-popup {
+    width: 45%;
+  }
+}
+
 @media screen and (max-width: 1100px) {
+  .library-popup {
+    width: 60%;
+  }
   .pick-palette-button {
     padding: 0.5rem;
     font-size: 1rem;
   }
   .delete-palette-button {
     font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .library-popup {
+    width: 70%;
   }
 }
 
@@ -581,9 +596,6 @@ svg {
   h3 {
     font-size: 1.4rem;
   }
-}
-
-@media screen and (max-width: 400px) {
   .pick-palette-button {
     padding: 0.2rem;
   }

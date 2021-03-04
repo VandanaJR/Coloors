@@ -1,6 +1,14 @@
 .logo {
-  text-align: center;
-  min-height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 8vh;
 }
 
 .logo h2 {
@@ -14,7 +22,7 @@
 }
 
 .colors {
-  min-height: 75vh;
+  min-height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,7 +31,7 @@
 .color {
   position: relative;
   overflow: hidden;
-  height: 75vh;
+  height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,8 +138,8 @@ input[type="range"] {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  min-height: 15vh;
-  padding-top: 1rem;
+  min-height: 10vh;
+  padding-top: 2rem;
 }
 
 .panel button {
@@ -285,15 +293,15 @@ input[type="range"] {
   background-color: #1c2349;
   color: white;
   cursor: pointer;
-  height: 5rem;
-  padding: 1rem;
+  height: 2rem;
+  width: 100%;
   border: none;
   font-size: 1.2rem;
 }
 
 .library-popup {
-  width: 40%;
-  max-height: 50vh;
+  width: 60%;
+  max-height: 70vh;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -327,6 +335,16 @@ input[type="range"] {
           flex: 1;
 }
 
+.previewWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .small-preview {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -337,7 +355,8 @@ input[type="range"] {
 }
 
 .small-preview div {
-  height: 5rem;
+  height: 3rem;
+  min-width: 1rem;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -368,7 +387,7 @@ body {
 }
 
 main {
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 path,
@@ -392,6 +411,231 @@ svg {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .pick-palette-button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .delete-palette-button {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .colors {
+    position: relative;
+  }
+  .color h2 {
+    font-size: 1.7rem;
+  }
+  .color .adjust,
+  .color .lock {
+    font-size: 1.7rem;
+  }
+  .colors .color {
+    position: initial;
+  }
+  .colors .color .sliders {
+    width: 60%;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+  }
+  .save-popup h4,
+  .library-popup h4 {
+    font-size: 1.7rem;
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 4rem;
+  }
+  .save-popup .submit-save,
+  .copy-popup .submit-save {
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+  }
+  .save-popup input,
+  .copy-popup input {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .save-popup h3,
+  .copy-popup h3 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .library-popup {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logo h2 {
+    font-size: 2.5rem;
+  }
+  .colors {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+  }
+  .color {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .color h2 {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    font-size: 1.5rem;
+    padding-left: 3rem;
+  }
+  .color .adjust,
+  .color .lock {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+  }
+  .controls {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding-left: 2rem;
+  }
+  .panel {
+    padding-top: 1.5rem;
+  }
+  .panel button {
+    font-size: 1rem;
+  }
+  .panel p {
+    padding: 0.8rem 0 0 0;
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 3rem;
+  }
+  .save-popup h3,
+  .copy-popup h3 {
+    font-size: 1.7rem;
+  }
+  .colors .color {
+    position: initial;
+  }
+  .colors .color .sliders {
+    width: 60%;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .colors {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .color {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .color h2 {
+    padding: 0 2rem;
+  }
+  .color .adjust,
+  .color .lock {
+    margin: 1.5rem;
+  }
+  .controls {
+    padding-left: 1rem;
+  }
+  .panel {
+    padding-top: 1rem;
+  }
+  .panel button {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 20px;
+  }
+  .panel p {
+    padding: 0.5rem 0 0 0;
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 2rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .pick-palette-button {
+    padding: 0.2rem;
+  }
+  .delete-palette-button {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  .library-palette {
+    padding: 1rem;
+  }
+  .library-palette h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .library-popup {
+    width: 90%;
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 1rem;
+  }
+  .save-popup h4,
+  .copy-popup h4 {
+    padding-top: 2rem;
+  }
+  .save-popup h3,
+  .copy-popup h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 324px) {
+  .library-popup {
+    width: 95%;
+  }
+  .color h2 {
+    font-size: 1rem;
+  }
+  .color .adjust,
+  .color .lock {
+    font-size: 1rem;
+  }
+  .panel {
+    padding-top: 1.2rem;
+  }
+  .panel button {
+    font-size: 1rem;
+  }
+  .panel p {
+    padding: 0.8rem 0 0 0;
   }
 }
 /*# sourceMappingURL=styles.css.map */

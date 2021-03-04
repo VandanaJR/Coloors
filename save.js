@@ -80,6 +80,7 @@ function savePalette(){
 function generatePalette(paletteObj){
    //Generate palette for Library
     const palette = document.createElement('div');
+    const previewWrap =document.createElement('div');
     palette.classList.add("library-palette");
     const title = document.createElement("h4");
     title.innerText= paletteObj.name;
@@ -103,8 +104,9 @@ function generatePalette(paletteObj){
 
     //Append library container
     palette.appendChild(title);
-    palette.appendChild(preview);
-    palette.appendChild(libPaletteButton);
+    previewWrap.appendChild(preview);
+    previewWrap.appendChild(libPaletteButton);
+    palette.appendChild(previewWrap);
     palette.appendChild(deleteButton);
     libraryContainer.children[0].children[2].appendChild(palette);
     

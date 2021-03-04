@@ -28,6 +28,12 @@ Step 5: Implement the copy to clipboard function as follows:(CREATE & DESTROY)
         ->Copy the textarea by .execCommand('copy');
         ->Remove textarea from body
 
+Step 6: Implement Save and Library fucntionality:
+        ->Save to Local Storage using Save button.
+        ->Clicking on Library button will fetch the stored palettes from local Storage and repopulate the Library.
+        ->Select button of library will reintialize the color back to the main color divisons.
+        ->Delete button will delete the saved palette from the local storage and from the library.
+
 
 
 

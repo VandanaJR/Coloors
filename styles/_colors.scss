@@ -1,6 +1,8 @@
 .logo {
-  text-align: center;
-  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8vh;
 }
 .logo h2 {
   font-family: "Pacifico", cursive;
@@ -21,14 +23,14 @@
 }
 
 .colors {
-  min-height: 75vh;
+  min-height: 70vh;
   display: flex;
 }
 
 .color {
   position: relative;
   overflow: hidden;
-  height: 75vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -106,9 +108,9 @@ input[type="range"] {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  min-height: 15vh;
+  min-height: 10vh;
   //background: rgb(224, 202, 169);
-  padding-top: 1rem;
+  padding-top: 2rem;
   button {
     border: none;
     font-size: 1.2rem;
@@ -220,14 +222,14 @@ input[type="range"] {
   background-color: rgb(28, 35, 73);
   color: white;
   cursor: pointer;
-  height: 5rem;
-  padding: 1rem;
+  height: 2rem;
+  width: 100%;
   border: none;
   font-size: 1.2rem;
 }
 .library-popup {
-  width: 40%;
-  max-height: 50vh;
+  width: 60%;
+  max-height: 70vh;
   justify-content: flex-start;
   padding: 1rem;
   border-radius: 20px;
@@ -249,12 +251,16 @@ input[type="range"] {
     flex: 1;
   }
 }
-
+.previewWrap {
+  display: flex;
+  flex-direction: column;
+}
 .small-preview {
   display: flex;
   flex: 1;
   div {
-    height: 5rem;
+    height: 3rem;
+    min-width: 1rem;
     flex: 1;
   }
 }

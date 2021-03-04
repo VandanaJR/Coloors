@@ -11,7 +11,7 @@ body {
 }
 
 main {
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 path,
@@ -28,3 +28,222 @@ svg {
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .pick-palette-button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .delete-palette-button {
+    font-size: 1.8rem;
+  }
+}
+//-------------------------------------------------------
+
+@media screen and (max-width: 700px) {
+  .colors {
+    position: relative;
+  }
+  .color {
+    h2 {
+      font-size: 1.7rem;
+    }
+    .adjust,
+    .lock {
+      font-size: 1.7rem;
+    }
+  }
+  .colors {
+    .color {
+      position: initial;
+      .sliders {
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+
+        left: 20%;
+      }
+    }
+  }
+  .save-popup,
+  .library-popup {
+    h4 {
+      font-size: 1.7rem;
+    }
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 4rem;
+    .submit-save {
+      padding: 0.5rem 0.8rem;
+      font-size: 1rem;
+    }
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
+//-------------------------------------------------------
+
+@media screen and (max-width: 550px) {
+  .library-popup {
+    width: 80%;
+  }
+}
+
+//-------------------------------------------------------
+@media screen and (max-width: 500px) {
+  .logo h2 {
+    font-size: 2.5rem;
+  }
+  .colors {
+    flex-direction: column;
+    position: relative;
+  }
+  .color {
+    flex-direction: row;
+    h2 {
+      flex: 2;
+      font-size: 1.5rem;
+      padding-left: 3rem;
+    }
+    .adjust,
+    .lock {
+      font-size: 1.5rem;
+      margin: 1.5rem;
+    }
+  }
+  .controls {
+    flex-direction: row;
+    flex: 1;
+    padding-left: 2rem;
+  }
+
+  .panel {
+    padding-top: 1.5rem;
+    button {
+      font-size: 1rem;
+    }
+    p {
+      padding: 0.8rem 0 0 0;
+    }
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 3rem;
+    h3 {
+      font-size: 1.7rem;
+    }
+  }
+
+  .colors {
+    .color {
+      position: initial;
+      .sliders {
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+//-------------------------------------------------------
+@media screen and (max-width: 460px) {
+  .colors {
+    flex-direction: column;
+  }
+  .color {
+    flex-direction: row;
+    h2 {
+      padding: 0 2rem;
+    }
+    .adjust,
+    .lock {
+      margin: 1.5rem;
+    }
+  }
+  .controls {
+    padding-left: 1rem;
+  }
+  .panel {
+    padding-top: 1rem;
+    button {
+      font-size: 1rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 20px;
+    }
+    p {
+      padding: 0.5rem 0 0 0;
+    }
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 2rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+}
+//-------------------------------------------------------
+@media screen and (max-width: 400px) {
+  .pick-palette-button {
+    padding: 0.2rem;
+  }
+  .delete-palette-button {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  .library-palette {
+    padding: 1rem;
+
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
+}
+//-------------------------------------------------------
+@media screen and (max-width: 360px) {
+  .library-popup {
+    width: 90%;
+  }
+  .save-popup,
+  .copy-popup {
+    padding: 1rem;
+    h4 {
+      padding-top: 2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+}
+//-------------------------------------------------------
+@media screen and (max-width: 324px) {
+  .library-popup {
+    width: 95%;
+  }
+  .color {
+    h2 {
+      font-size: 1rem;
+    }
+    .adjust,
+    .lock {
+      font-size: 1rem;
+    }
+  }
+
+  .panel {
+    padding-top: 1.2rem;
+    button {
+      font-size: 1rem;
+    }
+    p {
+      padding: 0.8rem 0 0 0;
+    }
+  }
+}
+//-------------------------------------------------------
